@@ -34,7 +34,7 @@ Video demo showcasing the use of application:
 - Clone the repo onto your enviroment
 - Using the terminal, navigate into the repo
 - Run the DDL.sql and DML.sql file after ensuring a connection with postgres database.
-- Navigate inside ~\FitnessApp\src and run 'python .\main.py'
+- Navigate inside ~\FitnessApp\src and run terminal command 'python .\main.py'
 
 ## Author Info
 - Name: Yasir Sheikh
