@@ -9,8 +9,6 @@ VALUES
 ('Rocky', 'boxer'),
 ('Usain Bolt', 'fastest');
 
--- DROP TABLE dashboard, member_schedule, members, monitors, schedules, issues, bills, rooms, equipment, class_registration, class_schedule, administrators, goals, update_room, trainer_schedule, trainers
-
 INSERT INTO members (username, password)
 VALUES
 ('Ronaldo', 'CR7'),
