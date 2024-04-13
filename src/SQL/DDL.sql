@@ -93,10 +93,10 @@ CREATE TABLE equipment (
 
 CREATE TABLE bills(
     bill_id SERIAL PRIMARY KEY,
-    member_name VARCHAR(256) NOT NULL, 
+    member_id SERIAL, 
     amount FLOAT NOT NULL,
     item VARCHAR(256) NOT NULL,
-    Foreign Key (member_name) REFERENCES members(username) ON DELETE CASCADE 
+    Foreign Key (member_id) REFERENCES members(member_id) ON DELETE CASCADE 
 );
 
 CREATE TABLE issues(

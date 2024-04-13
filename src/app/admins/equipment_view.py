@@ -55,7 +55,7 @@ class EquipmentView:
     def edit_equipment(self):
         color='#ebeceb'
         update_equipment = tk.Toplevel()
-        update_equipment.geometry("%dx%d+%d+%d" % (750, 150, (update_equipment.winfo_screenwidth()/2 - 750/2), (update_equipment.winfo_screenheight()/2 - 70/2)))
+        update_equipment.geometry("%dx%d+%d+%d" % (800, 150, (update_equipment.winfo_screenwidth()/2 - 800/2), (update_equipment.winfo_screenheight()/2 - 150/2)))
         update_equipment.resizable(width=False, height=False)
         update_equipment.grab_set()
         update_equipment.title("Update equipment")
@@ -136,13 +136,13 @@ class EquipmentView:
         elif re.search(r"^\d*$", equipment) == None:
             self.status.set(f'Status: Add unsuccessful. Equipment Id \'{equipment}\' is invalid')
         elif self.qapi.get_equipment_by_id(equipment) != None:
-            self.status.set(f'Status: Add Unsuccessful. Equipment \'{name}\' already exists, try UPDATE instead.')
+            self.status.set(f'Status: Add Unsuccessful. Equipment \'{equipment}\' already exists, try UPDATE instead.')
         else:
             self.qapi.add_equipment_by_id(equipment, name, status)
             self.equipment_entry.delete(0, 'end')
             self.name_entry.delete(0, 'end')
             self.status_entry.delete(0, 'end')
-            self.status.set(f'Status: Equipment \'{name}\' successfully added.')
+            self.status.set(f'Status: Equipment \'{equipment}\' successfully added.')
 
     def delete_equipment(self):
         equipment = self.equipment_entry.get()

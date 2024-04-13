@@ -123,6 +123,8 @@ class BillingView:
                 for i in range(0, len(bill)): 
                     if bill[i] == None:
                         bill_label = tk.Label(bill_display_frame, text='No Use', font=('Helvetica', 12), bg=self.background)
+                    elif i == 1:
+                        bill_label = tk.Label(bill_display_frame, text=self.qapi.get_member_username_by_id(bill[i])[0], font=('Helvetica', 12), bg=self.background)
                     else:
                         bill_label = tk.Label(bill_display_frame, text=bill[i], font=('Helvetica', 12), bg=self.background)
                     if i == 0:
@@ -159,12 +161,12 @@ class BillingView:
             self.status.set('Status: Add unsuccessful. Missing fields Bill id/ Member name/ Amount/ Item.')
         elif self.qapi.get_member_username_by_username(name) == None:
             self.status.set(f'Status: Add unsuccessful. Member \'{name}\' not found.')
-        elif re.search(r"^\d*$", bill) == None or re.search(r"^\d{2}\.\d{2}", amount) == None:
-            self.status.set(f'Status: Add unsuccessful.Bill/ Amount format is invalid')
+        elif re.search(r"^\d*$", bill) == None or re.search(r"^\d*\.\d{2}", amount) == None:
+            self.status.set(f'Status: Add unsuccessful. Bill/ Amount format is invalid')
         elif self.qapi.get_bill_by_id(bill) != None:
             self.status.set(f'Status: Add Unsuccessful. Bill id \'{bill}\' already exists, try UPDATE instead.')
         else:
-            self.qapi.add_bill_by_id(bill, name, amount, item)
+            self.qapi.add_bill_by_id(bill, self.qapi.get_member_id_by_username(name), amount, item)
             self.bill_entry.delete(0, 'end')
             self.name_entry.delete(0, 'end')
             self.amount_entry.delete(0, 'end')
@@ -202,14 +204,17 @@ class BillingView:
             self.status.set('Status: Update unsuccessful. Missing fields Bill id/ Member name/ Amount/ Item.')
         elif bill == '' or (name == '' and amount == '' and item == ''):
             self.status.set('Status: Update unsuccessful. Missing fields Bill id/ Member name/ Amount/ Item.')
-        elif re.search(r"^\d*$", bill) == None or (re.search(r"^\d{2}\.\d{2}", amount) == None and ((name == '' or 'ex.' in name) and (item == '' or 'ex.' in item))):
+        elif re.search(r"^\d*$", bill) == None or (re.search(r"^\d*\.\d{2}", amount) == None and ((name == '' or 'ex.' in name) and (item == '' or 'ex.' in item))):
             self.status.set(f'Status: Update unsuccessful. Bill/ Amount format is invalid')
         elif self.qapi.get_bill_by_id(bill) == None:
             self.status.set(f'Status: Update Unsuccessful. Bill id \'{bill}\' not found.')
         elif self.qapi.get_member_username_by_username(name) == None and ((amount == '' or 'ex.' in amount) and (item == '' or 'ex.' in item)):
             self.status.set(f'Status: Update Unsuccessful. Member \'{name}\' not found.')
         else:
-            self.qapi.update_bill_by_id(bill, name, amount, item)
+            if name == '' or 'ex' in name:
+                self.qapi.update_bill_by_id(bill, name, amount, item)
+            else:
+                self.qapi.update_bill_by_id(bill, self.qapi.get_member_id_by_username(name), amount, item)
             self.bill_entry.delete(0, 'end')
             self.name_entry.delete(0, 'end')
             self.amount_entry.delete(0, 'end')

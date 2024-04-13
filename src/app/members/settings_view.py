@@ -206,8 +206,8 @@ class SettingView:
             self.status.set(f'Status: Exercise \'{exercise}\' successfully updated.')
 
     def add_goal(self):
-        goal = self.goal_entry.get()
-        target = self.target_entry.get()
+        goal = self.goal_entry.get().strip()
+        target = self.target_entry.get().strip()
 
         if goal == '' or target == '':
             self.goal_status.set('Status: Add unsuccessful. Missing fields goal/ target.')
@@ -221,7 +221,7 @@ class SettingView:
             
 
     def delete_goal(self):
-        goal = self.goal_entry.get()
+        goal = self.goal_entry.get().strip()
         if goal == '':
             self.goal_status.set('Status: Delete unsuccessful. Missing field goal.')
         elif self.qapi.get_goal_by_goal(self.member_id, goal) == None:
@@ -233,8 +233,8 @@ class SettingView:
             self.goal_status.set(f'Status: Goal \'{goal}\' successfully deleted')
 
     def update_goal(self):
-        goal = self.goal_entry.get()
-        target = self.target_entry.get()
+        goal = self.goal_entry.get().strip()
+        target = self.target_entry.get().strip()
 
         if goal == '' or target == '':
             self.goal_status.set('Status: Update unsuccessful. Missing fields goal/ target.')

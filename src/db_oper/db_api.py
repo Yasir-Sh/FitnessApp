@@ -211,7 +211,7 @@ class QueryAPI():
         return self.cur.fetchone()
 
     def add_bill_by_id(self, id, name, amount, item):
-        self.cur.execute("INSERT INTO bills (bill_id, member_name, amount, item) VALUES (%s, %s, %s, %s)", (id, name, amount, item))
+        self.cur.execute("INSERT INTO bills (bill_id, member_id, amount, item) VALUES (%s, %s, %s, %s)", (id, name, amount, item))
         self.conn.commit()
 
     def get_all_bills(self):
@@ -223,20 +223,20 @@ class QueryAPI():
         self.conn.commit()
 
     def update_bill_by_id(self, id, name, amount, item):
-        if (name == '' or 'ex.' in name) and (amount == '' or 'ex.' in amount):
+        if (name == '' or 'ex.' in str(name)) and (amount == '' or 'ex.' in amount):
             self.cur.execute("UPDATE bills SET item = (%s) WHERE bill_id = (%s)", (item, id))
-        elif (name == '' or 'ex.' in name) and (item == '' or 'ex.' in item):
+        elif (name == '' or 'ex.' in str(name)) and (item == '' or 'ex.' in item):
             self.cur.execute("UPDATE bills SET amount = (%s) WHERE bill_id = (%s)", (amount, id))
         elif (amount == '' or 'ex.' in amount) and (item == '' or 'ex.' in item):
-            self.cur.execute("UPDATE bills SET member_name = (%s) WHERE bill_id = (%s)", (name, id))
-        elif name == '' or 'ex.' in name:
+            self.cur.execute("UPDATE bills SET member_id = (%s) WHERE bill_id = (%s)", (name, id))
+        elif name == '' or 'ex.' in str(name):
             self.cur.execute("UPDATE bills SET amount = (%s), item = (%s) WHERE bill_id = (%s)", (amount, item, id))
         elif item == '' or 'ex.' in item:
-            self.cur.execute("UPDATE bills SET member_name = (%s), amount = (%s) WHERE bill_id = (%s)", (name, amount, id))
+            self.cur.execute("UPDATE bills SET member_id = (%s), amount = (%s) WHERE bill_id = (%s)", (name, amount, id))
         elif amount == '' or 'ex.' in amount:
-            self.cur.execute("UPDATE bills SET member_name = (%s), item = (%s) WHERE bill_id = (%s)", (name, item, id))
+            self.cur.execute("UPDATE bills SET member_id = (%s), item = (%s) WHERE bill_id = (%s)", (name, item, id))
         else:
-            self.cur.execute("UPDATE bills SET member_name = (%s), amount = (%s), item = (%s) WHERE bill_id = (%s)", (name, amount, item, id))
+            self.cur.execute("UPDATE bills SET member_id = (%s), amount = (%s), item = (%s) WHERE bill_id = (%s)", (name, amount, item, id))
         self.conn.commit()
 
     def get_all_classess(self):

@@ -42,7 +42,7 @@ class RegistrationPage:
         back_button.pack()
 
     def validate_input(self, user):
-        username, password = self.username_entry.get(), self.password_entry.get()
+        username, password = self.username_entry.get().strip(), self.password_entry.get().strip()
         if len(username.strip()) == 0 or len(password.strip()) == 0:
             self.invalid_registration("Username or Password", user)
         else:

@@ -11,7 +11,7 @@ for members. For admins, the application provides maintenance services along wit
 class scheduling and member billing.
 
 ## Video Demo
-Video demo showcasing the use of application: 
+Video demo showcasing the use of application: https://youtu.be/MVgL3lsDPnw
 
 ## Versioning:
 - Python 3.12.2

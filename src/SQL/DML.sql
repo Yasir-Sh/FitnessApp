@@ -86,10 +86,9 @@ VALUES
 (DEFAULT, 1),
 (DEFAULT, 1);
 
-INSERT INTO bills (member_name, amount, item)
+INSERT INTO bills (member_id, amount, item)
 VALUES
-('Faker', '100', 'League Skin');
-
+(2, '100', 'League Skin');
 
 INSERT INTO issues (bill_id, admin_id) 
 VALUES 
