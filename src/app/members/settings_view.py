@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import simpledialog
-from src.db_oper.db_api import *
+from db_oper.db_api import *
 
 class SettingView:
     def __init__(self, root, dashboard_view, goals_view, parent_frame, member_id) -> None:

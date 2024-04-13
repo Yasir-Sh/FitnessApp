@@ -1,5 +1,5 @@
 import tkinter as tk
-from src.db_oper.db_api import *
+from db_oper.db_api import *
 
 class GoalsView:
     def __init__(self, root, parent_frame, goals_frame, member_id):

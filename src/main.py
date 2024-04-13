@@ -1,5 +1,5 @@
 import tkinter as tk
-from src.app.registration.registration import *
+from app.registration.registration import *
 
 class StartApplication:
     def __init__(self):

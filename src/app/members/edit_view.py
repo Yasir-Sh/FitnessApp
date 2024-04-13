@@ -1,6 +1,6 @@
 import tkinter as tk
-from src.db_oper.db_api import *
-from src.app.members.settings_view import *
+from db_oper.db_api import *
+from app.members.settings_view import *
 
 class EditView:
     def __init__(self, root, parent_frame, profile_frame, dashboard_view, goals_view, member_id):

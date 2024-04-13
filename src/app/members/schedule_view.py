@@ -1,8 +1,8 @@
 import tkinter as tk
-from src.db_oper.db_api import *
+from db_oper.db_api import *
 from tkinter import ttk
-from src.app.members.schedule_trainers_view import *
-from src.app.members.schedule_class_view import *
+from app.members.schedule_trainers_view import *
+from app.members.schedule_class_view import *
 
 class ScheduleView:
     def __init__(self, root, parent_frame, schedule_frame, member_id):

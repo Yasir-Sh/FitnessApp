@@ -1,10 +1,10 @@
 import tkinter as tk
-from src.db_oper.db_api import *
+from db_oper.db_api import *
 from tkinter import ttk
-from src.app.admins.room_view import *
-from src.app.admins.equipment_view import *
-from src.app.admins.class_view import *
-from src.app.admins.billing_view import *
+from app.admins.room_view import *
+from app.admins.equipment_view import *
+from app.admins.class_view import *
+from app.admins.billing_view import *
 
 
 class AdminView:

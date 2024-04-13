@@ -1,8 +1,8 @@
 import tkinter as tk
-import src.db_oper.db_api as db
-import src.app.members.members_view as members_view
-import src.app.trainers.trainers_view as trainers_view
-import src.app.admins.admins_view as admins_view
+import db_oper.db_api as db
+import app.members.members_view as members_view
+import app.trainers.trainers_view as trainers_view
+import app.admins.admins_view as admins_view
 
 
 class RegistrationPage:

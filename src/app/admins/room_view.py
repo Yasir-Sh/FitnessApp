@@ -1,6 +1,6 @@
 import tkinter as tk
 import re
-from src.db_oper.db_api import *
+from db_oper.db_api import *
 
 class RoomView:
     def __init__(self, room_frame, admin_id):

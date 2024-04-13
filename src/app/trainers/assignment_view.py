@@ -1,5 +1,5 @@
 import tkinter as tk
-from src.db_oper.db_api import *
+from db_oper.db_api import *
 
 class AssignmentView:
     def __init__(self, assignment_frame, trainer_id):

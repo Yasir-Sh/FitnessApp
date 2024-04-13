@@ -1,5 +1,5 @@
 import tkinter as tk
-from src.db_oper.db_api import *
+from db_oper.db_api import *
 import re
 
 class AvailabilityView:

@@ -1,10 +1,10 @@
 import tkinter as tk
-from src.db_oper.db_api import *
+from db_oper.db_api import *
 from tkinter import ttk
-from src.app.trainers.search_view import *
-from src.app.trainers.availability_view import *
-from src.app.trainers.assignment_view import *
-from src.app.registration.registration import *
+from app.trainers.search_view import *
+from app.trainers.availability_view import *
+from app.trainers.assignment_view import *
+from app.registration.registration import *
 
 
 class TrainersView:

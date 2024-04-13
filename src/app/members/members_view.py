@@ -1,8 +1,8 @@
 import tkinter as tk
-import src.app.members.edit_view as ev
-import src.app.members.dashboard_view as dv
-import src.app.members.goals_view as gv
-from src.app.members.schedule_view import *
+import app.members.edit_view as ev
+import app.members.dashboard_view as dv
+import app.members.goals_view as gv
+from app.members.schedule_view import *
 
 class MembersView:
     def __init__(self, root, member_id):
