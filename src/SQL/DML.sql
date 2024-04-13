@@ -18,8 +18,8 @@ INSERT INTO class_schedule (trainer_id, class_name, session_day, start_time, end
 VALUES
 (1, 'Dunks', '2024-04-15', '14:00', '15:00'),
 (1, 'Layups', '2024-04-15', '15:00', '16:00'),
-(2, 'Conditioning', '2024-04-18', '18:00', '20:00'),
-(2, 'Sparring', '2024-04-19', '18:00', '20:00');
+(2, 'Conditioning', '2024-04-17', '18:00', '20:00'),
+(2, 'Sparring', '2024-04-20', '18:00', '20:00');
 
 INSERT INTO schedules (class_id, admin_id)
 VALUES
